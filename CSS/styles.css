@@ -1,0 +1,22 @@
+body {
+    background-color: bisque;
+    position : absolute;
+}
+
+#calc {
+    height: 400px;
+    width: 300px;
+    background-color: grey;
+    display: flex;
+    
+}
+
+#screen {
+    display: flex;
+    background-color: red;
+}
+
+#buttons {
+    display: flex;
+    background-color: aqua;
+}
