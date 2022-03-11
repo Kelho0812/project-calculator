@@ -3,60 +3,91 @@ body {
     display: flex;
     align-content: center;
     justify-content: center;
-    color: green;
+    color: violet;
     font-weight: bolder;
     font-size: 20px;
 }
 
 #calc {
-    height: 400px;
-    width: 300px;
-    background-color: black;
-    display: flex;
-    justify-self: center;
-    flex-direction: column;
-    padding: 10px;
-    
+    height: 350px;
+    width: 400px;
+    background-color: #E2CFEA;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "screen screen screen screen screen"
+        "buttons buttons buttons buttons buttons"
+        "buttons buttons buttons buttons buttons"
+        "buttons buttons buttons buttons buttons"
+        "buttons buttons buttons buttons buttons";
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-color: #102B3F;
+    border-style: solid;
+
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
 }
 
 #screen {
-    display: flex;
-    background-color: red;
-    flex-grow: 0.5;
-    margin: 4px;
-    margin-bottom: 20px;
+    position:relative;
+    grid-area: screen;
+    background-color: white;
+    width: auto;
+    height: 75px;
+    width: 400px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 30px;
+    border-color: #102B3F;
+    border-style: solid;
+    color: #102B3F;
+    font-weight: 900;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+
 }
 
-#buttonsContainer {
-    margin: 4px;
-    display: flex;
-    flex-direction: column;
-    background-color: wheat;
-    justify-self: end;
+#display{
+    width: 300px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position:absolute;
+    bottom:0;
+    right:0;
 }
 
-.buttonsRows {
-    display: flex;
-    flex-direction:row;
-    justify-content: space-between;
-    background-color:cornflowerblue;
-    margin: 2px;
-    padding: 1px;
-}
-
-.buttons{
-    background-color: black;
+.buttons {
+    background-color: #A06CD5;
+    color: #102B3F;
     display: flex;
     margin: 1px;
     height: 50px;
-    width: 70px;
     justify-content: center;
     align-items: center;
     border-style: solid;
-    border-color: black;
-    
+    border-color: #102B3F;
+    border-radius: 5px;
+
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
 }
 
-.buttons:hover{
-    background-color: grey;
+.buttons:hover {
+    background-color: #6247AA;
+}
+
+.buttons:active{
+    background-color: #6147aaa9;
+    border-width: 1px; 
 }
