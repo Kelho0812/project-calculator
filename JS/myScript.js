@@ -9,11 +9,15 @@ let operatorArray = Array.from(operatorBtns);
 let num1 = "";
 let num2 = "";
 let operator = "";
+let operation = false;
+let dot = document.querySelector("#Dot");
+
 clear.addEventListener("click", () => {
     display.textContent = "";
     num1 = "";
     num2 = "";
     operator = "";
+    operation = false;
 });
 
 del.addEventListener("click", () => {
@@ -38,23 +42,32 @@ equal.addEventListener("click", () => {
     let result = operate(operator, num1, num2);
     if (num1 != "" && num2 != "" && operator != "") {
         console.log("Result " + result);
+        display.textContent = result;
         operator = "";
         num2 = "";
         num1 = result;
+        operation = true;
     } else {
-        console.log('Fill all req info')
+        console.log("Fill all req info");
     }
 });
 
 numberArray.forEach((element) => {
     // and for each one we add a 'click' listener
     element.addEventListener("click", () => {
-        if (num1 == "" || operator == "") {
+        if (operation == false && (num1 == "" || operator == "")) {
             num1 += element.textContent;
             console.log("Num1 - " + num1);
+            display.textContent = num1;
+        } else if (operation == true && (num1 == "" || operator == "")) {
+            num1 = "";
+            num1 += element.textContent;
+            console.log("Num1 - " + num1);
+            display.textContent = num1;
         } else {
             num2 += element.textContent;
             console.log("Num2 - " + num2);
+            display.textContent = num2;
         }
     });
 });
@@ -62,13 +75,23 @@ numberArray.forEach((element) => {
 operatorArray.forEach((element) => {
     // and for each one we add a 'click' listener
     element.addEventListener("click", () => {
-        if (operator == "") {
-            operator += element.textContent;
+        if (num2 != "") {
+            num1 = parseInt(num1);
+            num2 = parseInt(num2);
+            let result = operate(operator, num1, num2);
+            if (num1 != "" && num2 != "" && operator != "") {
+                console.log("Result " + result);
+                display.textContent = result;
+                operator = element.textContent;
+                num2 = "";
+                num1 = result;
+                operation = true;
+            }
         } else {
             operator = element.textContent;
+            console.log(operator);
+            display.textContent = operator;
         }
-        console.log(operator);
-        display.textContent += operator;
     });
 });
 
@@ -87,7 +110,11 @@ function operate(operator, num1, num2) {
     }
     function divide(x, y) {
         let result = x / y;
-        return result;
+        if (y === 0) {
+            console.log("You can't do that sir.")
+        } else {
+            return result;
+        };
     }
 
     if (operator == "+") {
