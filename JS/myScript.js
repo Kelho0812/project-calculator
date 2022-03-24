@@ -4,13 +4,13 @@ let display = document.querySelector("#display");
 let clear = document.querySelector("#Clear");
 let del = document.querySelector("#Del");
 let equal = document.querySelector("#Equal");
+let dot = document.querySelector("#Dot");
 let numberArray = Array.from(numberBtns);
 let operatorArray = Array.from(operatorBtns);
 let num1 = "";
 let num2 = "";
 let operator = "";
 let operation = false;
-let dot = document.querySelector("#Dot");
 
 clear.addEventListener("click", () => {
     display.textContent = "";
@@ -111,10 +111,10 @@ function operate(operator, num1, num2) {
     function divide(x, y) {
         let result = x / y;
         if (y === 0) {
-            console.log("You can't do that sir.")
+            console.log("You can't do that sir.");
         } else {
             return result;
-        };
+        }
     }
 
     if (operator == "+") {
