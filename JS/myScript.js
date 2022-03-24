@@ -9,7 +9,6 @@ let operatorArray = Array.from(operatorBtns);
 let num1 = "";
 let num2 = "";
 let operator = "";
-
 clear.addEventListener("click", () => {
     display.textContent = "";
     num1 = "";
@@ -34,10 +33,10 @@ del.addEventListener("click", () => {
     }
 });
 equal.addEventListener("click", () => {
+    num1 = parseInt(num1);
+    num2 = parseInt(num2);
     let result = operate(operator, num1, num2);
     if (num1 != "" && num2 != "" && operator != "") {
-        num1 = parseInt(num1);
-        num2 = parseInt(num2);
         console.log("Result " + result);
         operator = "";
         num2 = "";
@@ -76,7 +75,7 @@ operatorArray.forEach((element) => {
 function operate(operator, num1, num2) {
     function add(num1, num2) {
         let result = num1 + num2;
-        console.log(result);
+        return result;
     }
     function subtract(x, y) {
         let result = x - y;
