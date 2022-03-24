@@ -44,6 +44,8 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    direction: ltr;
+    text-align: right;
 }
 
 #buttonsContainer {
