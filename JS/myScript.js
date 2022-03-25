@@ -60,10 +60,9 @@ numberArray.forEach((element) => {
             console.log("Num1 - " + num1);
             display.textContent = num1;
         } else if (operation == true && (num1 == "" || operator == "")) {
-            num1 = "";
-            num1 += element.textContent;
-            console.log("Num1 - " + num1);
+            num1 = element.textContent;
             display.textContent = num1;
+            operation = false;
         } else {
             num2 += element.textContent;
             console.log("Num2 - " + num2);
